@@ -332,11 +332,26 @@
 
         .map-frame {
             width: 100%;
-            height: 350px;
+            height: 500px;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
             margin-bottom: 1rem;
+            position: relative;
+            background-color: #f8f9fa;
+        }
+
+        .map-frame img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            max-width: none;
+            object-fit: cover;
         }
 
         /* Services Section */
@@ -419,7 +434,7 @@
             }
 
             .map-frame {
-                height: 250px;
+                height: 350px;
             }
         }
     </style>
@@ -451,15 +466,15 @@
             <div class="hero-stats">
                 <div class="stat-item">
                     <h3>10+</h3>
-                    <p>10년간의 경험</p>
+                    <p>년간의 경험</p>
                 </div>
                 <div class="stat-item">
-                    <h3>300+</h3>
-                    <p>친절한 건강 상담</p>
+                    <h3>1000+</h3>
+                    <p>만족한 고객</p>
                 </div>
                 <div class="stat-item">
-                    <h3>4.9/5</h3>
-                    <p>고객 만족도</p>
+                    <h3>24/7</h3>
+                    <p>건강 상담</p>
                 </div>
             </div>
         </div>
@@ -475,7 +490,7 @@
         </div>
         <div class="about-content">
             <div class="about-text">
-                <p>해인 약국은 2004년 개국 이래 지역사회의 건강 파트너로서 최고 품질의 의약품과 전문적인 복약 지도를 제공해왔습니다.</p>
+                <p>해인 약국은 2004년 개원 이래 지역사회의 건강 파트너로서 최고 품질의 의약품과 전문적인 복약 지도를 제공해왔습니다.</p>
                 <p>환자 중심의 서비스와 정확한 조제를 통해 지역주민들의 건강한 삶을 지원하고 있으며, 끊임없는 연구와 학습으로 최신 의약품 정보를 제공합니다.</p>
                 <p>앞으로도 지역사회와 함께 성장하며, 더 나은 건강 서비스를 제공하기 위해 최선을 다하겠습니다.</p>
             </div>
@@ -489,7 +504,7 @@
             <div class="timeline-item">
                 <div class="timeline-year">2004</div>
                 <div>
-                    <h4>해인 약국 개국</h4>
+                    <h4>해인 약국 개원</h4>
                     <p>경기도 고양시 덕양구에서 지역사회를 위한 약국 서비스 시작</p>
                 </div>
             </div>
@@ -527,7 +542,7 @@
         </div>
         <div class="pharmacist-card">
             <div class="pharmacist-avatar">
-                <img src="/image/IMG_9708.jpg" alt="오성훈 약사" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                <i class="fas fa-user-md"></i>
             </div>
             <div class="pharmacist-info">
                 <h3>오성훈 약사</h3>
@@ -545,19 +560,15 @@
                 </div>
                 <div class="credential-item">
                     <h4><i class="fas fa-award"></i>경력</h4>
-                    <p>해인약국 (2022~현재)<br>국장</p>
-                    <br>
-                    <p>대조약국 (2021~2022)<br>직원</p>
-                    <br>
-                    <p>서울하이약국 (2019~2021)<br>직원</p>
-                    <br>
-                    <p>새싹약국 (20217~2018)<br>직원</p>
-                    <br>
-                    <p>한우리약국 (2016~2018)<br>직원</p>
+                    <p>해인 약국 개원 (2023~현재)<br>해인 약국장</p>
+                    <p>000 약국 (2022~2023)<br>직원</p>
+                    <p>000 약국 (2022~2023)<br>직원</p>
+                    <p>000 약국 (2022~2023)<br>직원</p>
+                    <p>000 약국 (2022~2023)<br>직원</p>
                 </div>
                 <div class="credential-item">
                     <h4><i class="fas fa-star"></i>전문분야</h4>
-                    <p>복약지도, 건강상담 <br>건강보조식품 상담<br>만성질환 관리</p>
+                    <p>복약지도, 건강상담, 트렌디한 건강보조식품 상담<br>만성질환 관리</p>
                 </div>
             </div>
         </div>
@@ -585,7 +596,7 @@
                         <i class="fas fa-phone"></i>
                         <div>
                             <h4>전화번호</h4>
-                            <p>031-965-7575<br>카카오톡: 0ilee</p>
+                            <p>031-965-7575<br>팩스: 031-965-7576</p>
                         </div>
                     </div>
                 </div>
@@ -601,23 +612,14 @@
                         <i class="fas fa-subway"></i>
                         <div>
                             <h4>교통편</h4>
-                            <p>화정역 1번 출구 도보 15분<br>행신역 1번 출구 도보 15분<br>시내버스 93, 706, 7738번 정류장 앞</p>
+                            <p>화정역 1번 출구 도보 3분<br>원당역 3번 출구 도보 5분<br>시내버스 93, 706, 7738번 정류장 앞</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="map-container">
                 <div class="map-frame">
-                    <iframe
-                            src="https://map.naver.com/v5/search/%EA%B2%BD%EA%B8%B0%20%EA%B3%A0%EC%96%91%EC%8B%9C%20%EB%8D%95%EC%96%91%EA%B5%AC%20%EC%A4%91%EC%95%99%EB%A1%9C%20550%20%EC%82%BC%EC%9D%BC%ED%94%84%EB%9D%BC%EC%9E%90"
-                            width="100%"
-                            height="100%"
-                            frameborder="0"
-                            style="border:0;"
-                            allowfullscreen=""
-                            aria-hidden="false"
-                            tabindex="0">
-                    </iframe>
+                    <img src="/image/img.png" alt="해인약국 위치 지도">
                 </div>
                 <p style="margin-top: 1rem;"><strong>주차안내:</strong> 삼일프라자 지하주차장 이용 가능 (2시간 무료)</p>
             </div>
@@ -670,7 +672,7 @@
 <!-- Footer -->
 <footer>
     <div class="container">
-        <p>&copy; 2025 해인 약국. 모든 권리 보유.</p>
+        <p>&copy; 2024 해인 약국. 모든 권리 보유.</p>
         <p>건강한 삶을 위한 믿음직한 파트너</p>
     </div>
 </footer>
