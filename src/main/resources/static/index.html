@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>해인 약국 - 건강한 삶을 위한 파트너</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2c5aa0 0%, #4a90e2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: #00d4aa;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #00d4aa;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,255,255,0.1)"><polygon points="0,0 1000,0 1000,100"/></svg>');
+            background-size: 100% 100%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: #00d4aa;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        /* About Section */
+        .about {
+            background: #f8f9fa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .about-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 3rem;
+            text-align: center;
+            color: white;
+        }
+
+        .about-image i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #00d4aa;
+        }
+
+        .timeline {
+            margin-top: 3rem;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .timeline-year {
+            background: #2c5aa0;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-right: 1.5rem;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        /* Pharmacist Section */
+        .pharmacist-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pharmacist-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .pharmacist-info h3 {
+            font-size: 2rem;
+            color: #2c5aa0;
+            margin-bottom: 0.5rem;
+        }
+
+        .pharmacist-info .title {
+            color: #00d4aa;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .credentials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .credential-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .credential-item i {
+            color: #2c5aa0;
+            margin-right: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #f8f9fa;
+        }
+
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-left, .contact-right {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: #2c5aa0;
+            width: 60px;
+            text-align: center;
+        }
+
+        .contact-item h4 {
+            font-size: 1.1rem;
+            color: #2c5aa0;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item p {
+            color: #666;
+            margin: 0;
+        }
+
+        .map-container {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 350px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+
+        /* Services Section */
+        .services {
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, white 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c5aa0;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .about-content,
+            .contact-info-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .credentials {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .map-frame {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+    <nav class="container">
+        <div class="logo">
+            <i class="fas fa-plus-circle"></i>
+            해인 약국
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">홈</a></li>
+            <li><a href="#about">약국 소개</a></li>
+            <li><a href="#pharmacist">약사 소개</a></li>
+            <li><a href="#contact">오시는 길</a></li>
+            <li><a href="#services">서비스</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>해인 약국</h1>
+            <p>건강한 삶을 위한 믿음직한 파트너</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3>10+</h3>
+                    <p>10년간의 경험</p>
+                </div>
+                <div class="stat-item">
+                    <h3>300+</h3>
+                    <p>친절한 건강 상담</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4.9/5</h3>
+                    <p>고객 만족도</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section about">
+    <div class="container">
+        <div class="section-title">
+            <h2>약국 소개</h2>
+            <p>지역사회의 건강을 지키는 해인 약국의 이력을 소개합니다</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>해인 약국은 2004년 개국 이래 지역사회의 건강 파트너로서 최고 품질의 의약품과 전문적인 복약 지도를 제공해왔습니다.</p>
+                <p>환자 중심의 서비스와 정확한 조제를 통해 지역주민들의 건강한 삶을 지원하고 있으며, 끊임없는 연구와 학습으로 최신 의약품 정보를 제공합니다.</p>
+                <p>앞으로도 지역사회와 함께 성장하며, 더 나은 건강 서비스를 제공하기 위해 최선을 다하겠습니다.</p>
+            </div>
+            <div class="about-image">
+                <i class="fas fa-hospital"></i>
+                <h3>신뢰받는 약국</h3>
+                <p>10년간 축적된 경험과 전문성</p>
+            </div>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-year">2004</div>
+                <div>
+                    <h4>해인 약국 개국</h4>
+                    <p>경기도 고양시 덕양구에서 지역사회를 위한 약국 서비스 시작</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2008</div>
+                <div>
+                    <h4>복약지도 시스템 도입</h4>
+                    <p>체계적인 복약지도 시스템을 통한 환자 맞춤형 서비스 제공</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2015</div>
+                <div>
+                    <h4>디지털 처방전 시스템 도입</h4>
+                    <p>최신 IT 기술을 활용한 정확하고 빠른 조제 서비스</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2020</div>
+                <div>
+                    <h4>온라인 건강 상담 서비스 시작</h4>
+                    <p>COVID-19 대응 및 비대면 건강 상담 서비스 도입</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pharmacist Section -->
+<section id="pharmacist" class="section">
+    <div class="container">
+        <div class="section-title">
+            <h2>약사 소개</h2>
+            <p>전문성과 경험을 바탕으로 최고의 서비스를 제공합니다</p>
+        </div>
+        <div class="pharmacist-card">
+            <div class="pharmacist-avatar">
+                <img src="/image/IMG_9708.jpg" alt="오성훈 약사" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+            </div>
+            <div class="pharmacist-info">
+                <h3>오성훈 약사</h3>
+                <p class="title">해인 약국 대표 약사</p>
+                <p>10년간의 풍부한 경험과 전문 지식을 바탕으로 환자 중심의 약료 서비스를 제공하고 있습니다. 정확한 조제와 친절한 복약지도를 통해 지역사회의 건강 증진에 기여하고 있습니다.</p>
+            </div>
+            <div class="credentials">
+                <div class="credential-item">
+                    <h4><i class="fas fa-graduation-cap"></i>학력</h4>
+                    <p>중앙대학교 약학과 졸업</p>
+                </div>
+                <div class="credential-item">
+                    <h4><i class="fas fa-certificate"></i>자격증</h4>
+                    <p>약사 면허<br>전문약사</p>
+                </div>
+                <div class="credential-item">
+                    <h4><i class="fas fa-award"></i>경력</h4>
+                    <p>해인약국 (2022~현재)<br>국장</p>
+                    <br>
+                    <p>대조약국 (2021~2022)<br>직원</p>
+                    <br>
+                    <p>서울하이약국 (2019~2021)<br>직원</p>
+                    <br>
+                    <p>새싹약국 (20217~2018)<br>직원</p>
+                    <br>
+                    <p>한우리약국 (2016~2018)<br>직원</p>
+                </div>
+                <div class="credential-item">
+                    <h4><i class="fas fa-star"></i>전문분야</h4>
+                    <p>복약지도, 건강상담 <br>건강보조식품 상담<br>만성질환 관리</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section contact">
+    <div class="container">
+        <div class="section-title">
+            <h2>오시는 길</h2>
+            <p>해인 약국의 위치와 연락처를 안내해드립니다</p>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info-grid">
+                <div class="contact-left">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>주소</h4>
+                            <p>경기 고양시 덕양구 중앙로 550<br>삼일프라자 3층</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>전화번호</h4>
+                            <p>031-965-7575<br>카카오톡: 0ilee</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-right">
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>운영시간</h4>
+                            <p>평일: 오전 9시 ~ 오후 6시<br>토요일: 오전 9시 ~ 오후 2시<br>일요일: 휴무</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-subway"></i>
+                        <div>
+                            <h4>교통편</h4>
+                            <p>화정역 1번 출구 도보 15분<br>행신역 1번 출구 도보 15분<br>시내버스 93, 706, 7738번 정류장 앞</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="map-container">
+                <div class="map-frame">
+                    <iframe
+                            src="https://map.naver.com/v5/search/%EA%B2%BD%EA%B8%B0%20%EA%B3%A0%EC%96%91%EC%8B%9C%20%EB%8D%95%EC%96%91%EA%B5%AC%20%EC%A4%91%EC%95%99%EB%A1%9C%20550%20%EC%82%BC%EC%9D%BC%ED%94%84%EB%9D%BC%EC%9E%90"
+                            width="100%"
+                            height="100%"
+                            frameborder="0"
+                            style="border:0;"
+                            allowfullscreen=""
+                            aria-hidden="false"
+                            tabindex="0">
+                    </iframe>
+                </div>
+                <p style="margin-top: 1rem;"><strong>주차안내:</strong> 삼일프라자 지하주차장 이용 가능 (2시간 무료)</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="section services">
+    <div class="container">
+        <div class="section-title">
+            <h2>서비스 안내</h2>
+            <p>해인 약국에서 제공하는 다양한 서비스를 소개합니다</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-pills"></i>
+                <h3>처방전 조제</h3>
+                <p>정확하고 신속한 처방전 조제 서비스를 제공합니다. 모든 의약품은 엄격한 품질 관리를 통해 안전하게 조제됩니다.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-user-nurse"></i>
+                <h3>복약 지도</h3>
+                <p>약물의 올바른 복용법과 주의사항을 상세히 안내해드립니다. 개인별 맞춤 복약지도로 치료 효과를 극대화합니다.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-heartbeat"></i>
+                <h3>건강 상담</h3>
+                <p>일반의약품 선택부터 건강 관리까지 전문적인 상담을 제공합니다. 언제든지 편리하게 상담받으실 수 있습니다.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-thermometer-half"></i>
+                <h3>건강 측정</h3>
+                <p>혈압, 혈당 등 기본적인 건강 측정 서비스를 제공합니다. 정기적인 모니터링으로 건강 관리를 도와드립니다.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-shipping-fast"></i>
+                <h3>배송 서비스</h3>
+                <p>거동이 불편하신 분들을 위한 의약품 배송 서비스를 제공합니다. 안전하고 신속한 배송으로 편의를 제공합니다.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>온라인 상담</h3>
+                <p>전화 및 온라인을 통한 건강 상담 서비스를 제공합니다. 언제든지 전문약사와 상담하실 수 있습니다.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <p>&copy; 2025 해인 약국. 모든 권리 보유.</p>
+        <p>건강한 삶을 위한 믿음직한 파트너</p>
+    </div>
+</footer>
+
+<script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Header background change on scroll
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if (window.scrollY > 100) {
+            header.style.background = 'rgba(44, 90, 160, 0.95)';
+        } else {
+            header.style.background = 'linear-gradient(135deg, #2c5aa0 0%, #4a90e2 100%)';
+        }
+    });
+</script>
+</body>
+</html>
